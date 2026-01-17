@@ -18,10 +18,11 @@
 # 使用本代码即表示您同意遵守上述原则和LICENSE中的所有条款。
 
 # 基础配置
-PLATFORM = "xhs"  # 平台，xhs | dy | ks | bili | wb | tieba | zhihu
-KEYWORDS = "编程副业,编程兼职"  # 关键词搜索配置，以英文逗号分隔
-LOGIN_TYPE = "qrcode"  # qrcode or phone or cookie
-COOKIES = ""
+PLATFORM = "zhihu"  # 平台，xhs | dy | ks | bili | wb | tieba | zhihu
+KEYWORDS = "字节跳动 内推,腾讯招聘,阿里内推,Java工程师招聘,产品经理内推,前端开发招聘,互联网校招"  # 关键词搜索配置，以英文逗号分隔
+LOGIN_TYPE = "cookie"  # qrcode or phone or cookie
+# 在这里粘贴你的知乎Cookie，格式: "key1=value1; key2=value2"
+COOKIES = ""  # 例如: "a1=xxx; d_c0=yyy; z_c0=zzz"
 CRAWLER_TYPE = (
     "search"  # 爬取类型，search(关键词搜索) | detail(帖子详情)| creator(创作者主页数据)
 )
@@ -38,7 +39,7 @@ IP_PROXY_PROVIDER_NAME = "kuaidaili"  # kuaidaili | wandouhttp
 # 设置False会打开一个浏览器
 # 小红书如果一直扫码登录不通过，打开浏览器手动过一下滑动验证码
 # 抖音如果一直提示失败，打开浏览器看下是否扫码登录之后出现了手机号验证，如果出现了手动过一下再试。
-HEADLESS = False
+HEADLESS = True  # 服务器环境使用无头模式
 
 # 是否保存登录状态
 SAVE_LOGIN_STATE = True
@@ -47,7 +48,7 @@ SAVE_LOGIN_STATE = True
 # 是否启用CDP模式 - 使用用户现有的Chrome/Edge浏览器进行爬取，提供更好的反检测能力
 # 启用后将自动检测并启动用户的Chrome/Edge浏览器，通过CDP协议进行控制
 # 这种方式使用真实的浏览器环境，包括用户的扩展、Cookie和设置，大大降低被检测的风险
-ENABLE_CDP_MODE = True
+ENABLE_CDP_MODE = False  # 服务器环境禁用CDP模式
 
 # CDP调试端口，用于与浏览器通信
 # 如果端口被占用，系统会自动尝试下一个可用端口
@@ -80,7 +81,7 @@ USER_DATA_DIR = "%s_user_data_dir"  # %s will be replaced by platform name
 START_PAGE = 1
 
 # 爬取视频/帖子的数量控制
-CRAWLER_MAX_NOTES_COUNT = 15
+CRAWLER_MAX_NOTES_COUNT = 50  # 增加到50以获取更多招聘信息
 
 # 并发爬虫数量控制
 MAX_CONCURRENCY_NUM = 1
